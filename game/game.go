@@ -79,6 +79,8 @@ const maxStatusWidthRatio = 0.5
 
 const bufferCharacterWidth = 28
 
+const fieldHeight = 64
+
 const (
 	minWidth  = 320
 	minHeight = 240
@@ -690,7 +692,7 @@ func NewGame() *Game {
 		grid.SetColumnPadding(int(g.Board.horizontalBorderSize / 2))
 		grid.SetRowPadding(20)
 		grid.SetColumnSizes(10, 200, -1, 10)
-		grid.SetRowSizes(60, 50, 50, 50)
+		grid.SetRowSizes(60, fieldHeight, fieldHeight, fieldHeight)
 		grid.AddChildAt(headerLabel, 0, 0, 3, 1)
 		grid.AddChildAt(etk.NewBox(), 3, 0, 1, 1)
 		grid.AddChildAt(nameLabel, 1, 1, 1, 1)
@@ -725,7 +727,7 @@ func NewGame() *Game {
 		grid.SetColumnPadding(int(g.Board.horizontalBorderSize / 2))
 		grid.SetRowPadding(20)
 		grid.SetColumnSizes(10, 200, -1, 10)
-		grid.SetRowSizes(60, 50, 50)
+		grid.SetRowSizes(60, fieldHeight, fieldHeight)
 		grid.AddChildAt(g.lobby.joinGameLabel, 0, 0, 3, 1)
 		grid.AddChildAt(etk.NewBox(), 3, 0, 1, 1)
 		grid.AddChildAt(passwordLabel, 1, 1, 1, 1)
@@ -1475,9 +1477,9 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
 	inputBuffer.Field.SetScrollBarColors(etk.Style.ScrollAreaColor, etk.Style.ScrollHandleColor)
 
 	if ShowServerSettings {
-		connectGrid.SetRowSizes(60, 50, 50, 50, 108, g.scale(baseButtonHeight))
+		connectGrid.SetRowSizes(60, fieldHeight, fieldHeight, fieldHeight, 108, g.scale(baseButtonHeight))
 	} else {
-		connectGrid.SetRowSizes(60, 50, 50, 108, g.scale(baseButtonHeight))
+		connectGrid.SetRowSizes(60, fieldHeight, fieldHeight, 108, g.scale(baseButtonHeight))
 	}
 
 	{

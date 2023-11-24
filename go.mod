@@ -3,11 +3,11 @@ module code.rocket9labs.com/tslocum/boxcars
 go 1.17
 
 require (
-	code.rocket9labs.com/tslocum/bgammon v0.0.0-20231120015537-44b1eb1fd379
+	code.rocket9labs.com/tslocum/bgammon v0.0.0-20231124210550-f63f21b5ad3f
 	code.rocket9labs.com/tslocum/etk v0.0.0-20231120184929-cba07aae6454
 	code.rocketnine.space/tslocum/kibodo v1.0.2
-	code.rocketnine.space/tslocum/messeji v1.0.6-0.20231118073151-fee1357e1e9b
-	github.com/hajimehoshi/ebiten/v2 v2.6.2
+	code.rocketnine.space/tslocum/messeji v1.0.6-0.20231123022058-9d8fb2eb019d
+	github.com/hajimehoshi/ebiten/v2 v2.6.3
 	github.com/leonelquinteros/gotext v1.5.3-0.20231003122255-12a99145a351
 	github.com/llgcode/draw2d v0.0.0-20231022063514-1acb54133d2a
 	github.com/nfnt/resize v0.0.0-20180221191011-83c6a9932646
@@ -18,7 +18,7 @@ require (
 
 require (
 	github.com/ebitengine/oto/v3 v3.1.0 // indirect
-	github.com/ebitengine/purego v0.5.0 // indirect
+	github.com/ebitengine/purego v0.5.1 // indirect
 	github.com/golang/freetype v0.0.0-20170609003504-e2365dfdc4a0 // indirect
 	github.com/jezek/xgb v1.1.0 // indirect
 	github.com/jfreymuth/oggvorbis v1.0.5 // indirect
@@ -28,3 +28,7 @@ require (
 	golang.org/x/sync v0.5.0 // indirect
 	golang.org/x/sys v0.14.0 // indirect
 )
+
+replace code.rocketnine.space/tslocum/messeji => /home/trevor/programming/messeji
+
+replace code.rocket9labs.com/tslocum/bgammon => /home/trevor/programming/bgammon/bgammon

@@ -1914,7 +1914,7 @@ func (bw *BoardWidget) HandleMouse(cursor image.Point, pressed bool, clicked boo
 		// TODO allow grabbing multiple pieces by grabbing further down the stack
 		if !handled && b.playerTurn() && clicked && (b.lastDragClick.IsZero() || time.Since(b.lastDragClick) >= 50*time.Millisecond) {
 			s, space := b.spriteAt(cx, cy)
-			if s != nil && s.colorWhite == (b.gameState.PlayerNumber == 2) && space != bgammon.SpaceHomePlayer && (space != bgammon.SpaceHomeOpponent || !game.Board.gameState.Acey || !game.Board.gameState.Player1.Entered) {
+			if s != nil && s.colorWhite == (b.gameState.PlayerNumber == 2) && space != bgammon.SpaceHomeOpponent && (space != bgammon.SpaceHomePlayer || !game.Board.gameState.Acey || !game.Board.gameState.Player1.Entered) {
 				b.startDrag(s, space, false)
 				handled = true
 			}

@@ -65,8 +65,6 @@ var (
 	mediumFont font.Face
 	largeFont  font.Face
 
-	gameFont font.Face
-
 	fontMutex = &sync.Mutex{}
 )
 
@@ -79,7 +77,7 @@ const maxStatusWidthRatio = 0.5
 
 const bufferCharacterWidth = 28
 
-const fieldHeight = 64
+const fieldHeight = 50
 
 const (
 	minWidth  = 320
@@ -635,10 +633,12 @@ func NewGame() *Game {
 		g.connectUsername = etk.NewInput("", "", func(text string) (handled bool) {
 			return false
 		})
+		centerInput(g.connectUsername)
 
 		g.connectPassword = etk.NewInput("", "", func(text string) (handled bool) {
 			return false
 		})
+		centerInput(g.connectPassword)
 
 		grid := etk.NewGrid()
 		grid.SetColumnPadding(int(g.Board.horizontalBorderSize / 2))
@@ -659,6 +659,7 @@ func NewGame() *Game {
 			g.connectServer = etk.NewInput("", connectAddress, func(text string) (handled bool) {
 				return false
 			})
+			centerInput(g.connectServer)
 			grid.AddChildAt(etk.NewText(gotext.Get("Server")), 1, y, 2, 1)
 			grid.AddChildAt(g.connectServer, 2, y, 2, 1)
 			y++
@@ -679,14 +680,17 @@ func NewGame() *Game {
 		g.lobby.createGameName = etk.NewInput("", "", func(text string) (handled bool) {
 			return false
 		})
+		centerInput(g.lobby.createGameName)
 
 		g.lobby.createGamePoints = etk.NewInput("", "", func(text string) (handled bool) {
 			return false
 		})
+		centerInput(g.lobby.createGamePoints)
 
 		g.lobby.createGamePassword = etk.NewInput("", "", func(text string) (handled bool) {
 			return false
 		})
+		centerInput(g.lobby.createGamePassword)
 
 		grid := etk.NewGrid()
 		grid.SetColumnPadding(int(g.Board.horizontalBorderSize / 2))
@@ -722,6 +726,7 @@ func NewGame() *Game {
 		g.lobby.joinGamePassword = etk.NewInput("", "", func(text string) (handled bool) {
 			return false
 		})
+		centerInput(g.lobby.joinGamePassword)
 
 		grid := etk.NewGrid()
 		grid.SetColumnPadding(int(g.Board.horizontalBorderSize / 2))
@@ -1784,6 +1789,10 @@ func (t *ClickableText) HandleMouse(cursor image.Point, pressed bool, clicked bo
 		t.onSelected()
 	}
 	return true, nil
+}
+
+func centerInput(input *etk.Input) {
+	input.Field.SetVertical(messeji.AlignCenter)
 }
 
 // Short description.

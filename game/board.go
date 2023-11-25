@@ -245,6 +245,7 @@ func NewBoard() *board {
 	{
 		leaveGameLabel := etk.NewText(gotext.Get("Leave match?"))
 		leaveGameLabel.SetHorizontal(messeji.AlignCenter)
+		leaveGameLabel.SetVertical(messeji.AlignCenter)
 
 		b.leaveGameGrid = etk.NewGrid()
 		b.leaveGameGrid.SetBackground(color.RGBA{40, 24, 9, 255})
